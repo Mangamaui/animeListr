@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import AnimeList from './components/AnimeList';
 
 class App extends React.Component {
   render() {
@@ -8,8 +9,8 @@ class App extends React.Component {
         <header>
           <h1>AnimeListr</h1>
         </header>
-        <div class="content">
-            
+        <div className="content">
+            <AnimeList />
         </div>
       </div>
     );
