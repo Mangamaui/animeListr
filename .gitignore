@@ -23,3 +23,6 @@ yarn-error.log*
 # doc files
 MANUAL.md
 PROJECT_GUIDE.md
+
+# styling
+*.css
