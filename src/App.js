@@ -2,6 +2,8 @@ import React from 'react';
 // import './App.css';
 import AnimeList from './components/AnimeList';
 
+import { connect } from 'react-redux';
+
 class App extends React.Component {
   render() {
     return (
@@ -17,4 +19,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect(function(state){
+  return {
+    list: state.shows.collection
+  };
+})(App);
