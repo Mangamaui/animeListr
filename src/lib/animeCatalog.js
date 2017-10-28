@@ -14,7 +14,7 @@ const AnimeCatalog = [
     {
         "id": 3,
         "title": "Udon no Kuni no Kiniro Kemari",
-        "cover": "80039.jpg",
+        "cover": "82343.jpg",
         "episodes": 12
     },
     {
