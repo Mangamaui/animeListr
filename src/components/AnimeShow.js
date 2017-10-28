@@ -7,7 +7,7 @@ class AnimeShow extends React.Component {
 
         return (
             <li className="animeShow">
-                <img src={IMG} />
+                <img src={IMG} alt={this.props.title}/>
                 <p className="animeShow__title">{this.props.title}</p>
                 <div className="episode-counter">
                     <span className="episode-counter__progress">0</span>|
