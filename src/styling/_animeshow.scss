@@ -1,0 +1,73 @@
+.animeList:not(.userCollection) {
+  display: flex;
+  font-size: 13px;
+
+  .animeShow {
+    flex: 1;
+    margin: 10px;
+
+    .animeShow__image-wrap {
+      display: block;
+      height: 300px;
+      margin-bottom: 5px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .animeShow__image {
+      width: 100%;
+    }
+
+    p {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    button {
+      // background-color: #333;
+      // border: none;
+      // color: white;
+      cursor: pointer;
+      display: block;
+      height: 40px;
+      margin: 10px auto;
+      width: 100%;
+    }
+
+  }
+}
+
+.animeList.userCollection {
+  position: relative;
+
+  .animeShow {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    //justify-content: center;
+  }
+
+  .animeShow__image-wrap,
+  input,
+  div {
+    flex: 1;
+  }
+
+  select,
+  button {
+    flex: 2;
+  }
+
+  .animeShow__image {
+    height: 50px;
+  }
+
+  div, p {
+    text-align: left;
+  }
+
+  p {
+
+    flex: 3;
+  }
+}
