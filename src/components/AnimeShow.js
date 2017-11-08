@@ -45,7 +45,7 @@ class AnimeShow extends React.Component {
 
   handleChange(event) {
     event.preventDefault();
-    let reduxAction = updateShowProgress(this.props.id, event.target.value);
+    let reduxAction = updateShowProgress(this.props.id, event.target.value, this.props.episodes);
     this.props.dispatch(reduxAction);
   }
 
@@ -92,6 +92,7 @@ class AnimeShow extends React.Component {
     return template;
 
   }
+
 }
 
 export default connect()(AnimeShow);

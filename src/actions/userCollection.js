@@ -25,10 +25,11 @@ export function updateShowStatus(showID, status) {
   }
 }
 
-export function updateShowProgress(showID, progress) {
+export function updateShowProgress(showID, progress, episodes) {
   return {
     type: 'UPDATE_SHOW_PROGRESS',
     showID: showID,
-    progress: progress
+    progress: progress,
+    episodes: episodes
   }
 }

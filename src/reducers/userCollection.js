@@ -36,10 +36,23 @@ export default function userCollection(state = initialState, action) {
       index = shows.findIndex(function(show) {
         return show.showID === action.showID;
       });
+      const STATUS = setShowStatus(action.progress, action.episodes);
+      shows[index] = {...shows[index]};
       shows[index].progress = action.progress;
+      shows[index].status = STATUS;
       return {...state, shows: shows};
 
     default:
       return state;
   }
+}
+
+function setShowStatus(progress, episodes) {
+  let status = 0;
+  if(progress > 0 && progress < episodes) {
+    status = 1;
+  } else if (progress == episodes) {
+    status = 2;
+  }
+  return status
 }
