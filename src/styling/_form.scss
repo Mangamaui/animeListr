@@ -1,0 +1,26 @@
+form {
+  text-align: left;
+  
+  label {
+    margin: 0 5px;
+  }
+
+  input {
+    width: 150px;
+    margin: 0 5px;
+  }
+
+  button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 0 5%;
+  }
+
+  button,
+  input,
+  label {
+    height: 25px;
+  }
+
+}
