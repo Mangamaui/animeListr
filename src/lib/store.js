@@ -1,5 +1,13 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
 import reducers from '../reducers';
 
-export default createStore(combineReducers(reducers),
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+import { loadState } from '../lib/localStorage';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const persistedState = loadState();
+
+export default createStore(combineReducers(reducers), persistedState, composeEnhancers(applyMiddleware(thunk)),
+);
