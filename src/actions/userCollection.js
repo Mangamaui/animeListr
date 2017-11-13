@@ -17,7 +17,6 @@ export function removeShow(showID) {
 }
 
 export function updateShowStatus(showID, status) {
-  console.log(showID, status);
   return {
     type: 'UPDATE_SHOW_STATUS',
     showID: showID,

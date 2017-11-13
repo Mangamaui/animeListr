@@ -51,7 +51,7 @@ function setShowStatus(progress, episodes) {
   let status = 0;
   if(progress > 0 && progress < episodes) {
     status = 1;
-  } else if (progress == episodes) {
+  } else if (progress === episodes) {
     status = 2;
   }
   return status

@@ -78,6 +78,10 @@ class AnimeShow extends React.Component {
     } else {
       const BTNTEXT = (this.props.inCollection) ? "Added" : "Add to collection";
       const DISABLED = (this.props.inCollection);
+      const ADDBTN = (<button className="animeShow__add-button" onClick={this.handleAddEvent} disabled={DISABLED} name="addShow">{BTNTEXT}</button>);
+
+      const AUTHENTICATED = this.props.user.authenticated != null;
+      const PRINTBTN = AUTHENTICATED ? ADDBTN : "";
       template = (
         <li className="animeShow">
           <div className="animeShow__image-wrap">
@@ -85,7 +89,7 @@ class AnimeShow extends React.Component {
           </div>
           <p className="animeShow__title">{this.props.title}</p>
           <span className="animeShow__episode-counter">{this.props.episodes} episodes</span>
-          <button className="animeShow__add-button" onClick={this.handleAddEvent} disabled={DISABLED} name="addShow">{BTNTEXT}</button>
+          {PRINTBTN}
         </li>
       )
     }
@@ -95,4 +99,8 @@ class AnimeShow extends React.Component {
 
 }
 
-export default connect()(AnimeShow);
+export default connect(function(state){
+  return {
+    user: state.app
+  }
+})(AnimeShow);

@@ -7,20 +7,20 @@ import AnimeShow from './AnimeShow';
 class AnimeList extends React.Component {
 
   render() {
-    const USERCLASS = (this.props.class) ? this.props.class : "";
-    const USERID = (this.props.userID) ? this.props.class :  null;
+    const USERCLASS = (this.props.class) ? this.props.class : null;
 
     const LIST = this.props.list.map((show) => {
       let animeShow = null;
       const ITEM = this.findShow(show.id);
 
-      if (USERID && this.props.shows) {
+      //if the component has the userClass it's a userCollection
+      if ((USERCLASS != null) && this.props.shows) {
         if (ITEM) {
           animeShow = <AnimeShow key={show.id} id={show.id} title={show.title} cover={show.cover}
           episodes={show.episodes} userCollectionItem={true} progress={ITEM.progress} status={ITEM.status}/>
         };
-
-      } else if (USERID == null){
+        // an AnimeList component without userClass represents the animeCatalog
+      } else if (USERCLASS == null){
         const inCollection = ITEM ? true : false;
         animeShow = <AnimeShow key={show.id} id={show.id} title={show.title} cover={show.cover} episodes={show.episodes} inCollection={inCollection} />;
       }
@@ -47,6 +47,7 @@ class AnimeList extends React.Component {
 export default connect(function(state){
   return {
     list: state.shows.collection,
-    shows: state.userCollection.shows
+    shows: state.userCollection.shows,
+    user: state.app
   };
 })(AnimeList);
