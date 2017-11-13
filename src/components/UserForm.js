@@ -1,0 +1,74 @@
+import React from 'react';
+
+import { connect } from 'react-redux';
+import {
+  signup,
+  login
+} from '../actions/app';
+
+class UserForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  render() {
+    const SIGNUP = this.props.signup;
+
+    const BTNTEXT =  SIGNUP ? "Signup": "Login";
+
+    let userNameField = (<label>Username:
+            <input type="text" name="username" className="login-form__input" required={true} onChange={this.handleInputChange}  />
+            </label>);
+
+    return (
+      <form className="user-form form" onSubmit={this.handleSubmit}>
+        { (SIGNUP)?userNameField:""}
+        <label>Email:
+          <input type="email" name="email" className="login-form__input" placeholder="mugen@samuraichamploo.com" required={true} onChange={this.handleInputChange} />
+        </label>
+        <label>Password:
+          <input type="password" name="password" className="login-form__input" required={true} onChange={this.handleInputChange}  />
+        </label>
+        <button className="user-form__button">{BTNTEXT}</button>
+      </form>
+
+    );
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let reduxAction = null;
+
+    if(this.props.signup) {
+      reduxAction = signup(this.state.email, this.state.password, this.state.username);
+    }
+    if(!this.props.signup) {
+      reduxAction = login(this.state.email, this.state.password);
+    }
+
+    this.props.dispatch(reduxAction);
+
+    //this.clearFields();
+  }
+
+  clearFields() {
+    const FIELDS = document.querySelectorAll('input');
+    FIELDS.forEach(field => {
+      field.value = "";
+    });
+  }
+}
+
+export default connect()(UserForm);
