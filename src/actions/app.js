@@ -58,3 +58,17 @@ export function logout() {
     type: 'LOGOUT'
   }
 }
+
+export function requestHasErrored(bool) {
+  return {
+    type: 'REQUEST_HAS_ERRORED',
+    hasErrored: bool
+  };
+}
+
+export function requestIsLoading(bool) {
+  return {
+    type: 'REQUEST_IS_LOADING',
+    isLoading: bool
+  };
+}
