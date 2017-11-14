@@ -22,6 +22,13 @@ function app(state = initialState, action) {
       user = null;
     return {...state, authenticated: auth, user: user};
 
+    case 'REQUEST_HAS_ERRORED':
+
+    return state;
+
+    case 'REQUEST_IS_LOADING':
+
+    return state;
 
     default:
         return state;
