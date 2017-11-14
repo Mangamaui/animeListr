@@ -1,15 +1,19 @@
 import animeCatalog from '../lib/animeCatalog';
 
 const initialState = {
-    collection: animeCatalog
+    collection: []
 }
 
 export default function shows(state = initialState, action) {
+    let collection = null;
 
     switch(action.type) {
-      
-        default:
-            return state;
+      case 'LOAD_CATALOG':
+        collection = action.collection;
+      return {...state, collection};
+
+      default:
+        return state;
 
     }
 }
