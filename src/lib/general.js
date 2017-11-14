@@ -51,22 +51,13 @@ export function authenticatedFetch(url, token) {
   });
 }
 
-export function fetchGet(url,body) {
-  fetch(url, {
+export function fetchGet(url) {
+  return fetch(url, {
     method: 'GET',
     headers: new Headers({
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    }),
-    body: body
-  }).then(status)
-  .then(json)
-  .then(function(data) {
-    console.log('Request succeeded with JSON response', data);
-    return data;
-  }).catch(function(error) {
-    console.log('Request failed', error);
-    return error;
+    })
   });
 
 }

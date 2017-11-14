@@ -7,7 +7,6 @@ export function signup(email, password, username) {
   return(dispatch) => {
     fetchPost('http://localhost:4000/users', data)
     .then( response => {
-      console.log(response);
 
       if(response.jwt) {
         token = response.jwt;
@@ -36,14 +35,11 @@ export function login(email, password) {
   return (dispatch) => {
     fetchPost('http://localhost:4000/users/token', data)
     .then((response) => {
-      console.log(response);
 
       if(response.jwt) {
         token = response.jwt;
-        console.log(token);
         authenticatedFetch('http://localhost:4000/users/info',token).then((userName) => {
           const user = {...userName,token: token};
-          console.log(user);
           dispatch({
             type: 'LOGIN',
             user: user
