@@ -3,12 +3,14 @@ import React from 'react';
 import AnimeList from './components/AnimeList';
 import UserForm from './components/UserForm';
 
+import {loadAnimeCatalog} from './actions/shows';
+
 import { connect } from 'react-redux';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    props.dispatch(loadAnimeCatalog());
     this.state = {
       signup: false
     }
