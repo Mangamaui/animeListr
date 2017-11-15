@@ -1,14 +1,17 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import './styling/style.css';
-
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-
-import store from './lib/store';
-import { saveState } from './lib/localStorage';
+import { ConnectedRouter } from 'react-router-redux';
+import { Route } from 'react-router';
 import { Provider } from 'react-redux';
+//lib stuff
+import store, { history } from './lib/store';
+import { saveState } from './lib/localStorage';
+//components
+import App from './App';
+//styling
+import './styling/style.css';
 
 store.subscribe(() => {
   saveState({
@@ -19,5 +22,11 @@ store.subscribe(() => {
 
 ReactDOM.render(
   (<Provider store={store}>
-  <App /></Provider>), document.getElementById('root'));
+    { /* ConnectedRouter will use the store from Provider automatically */ }
+    <ConnectedRouter history={history}>
+      <div>
+        <Route exact path="/" component={App}/>
+      </div>
+    </ConnectedRouter>
+  </Provider>), document.getElementById('root'));
 registerServiceWorker();
