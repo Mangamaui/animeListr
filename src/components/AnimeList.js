@@ -2,6 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import AnimeShow from './AnimeShow';
+import UserShow from './UserShow';
 
 
 class AnimeList extends React.Component {
@@ -15,12 +16,14 @@ class AnimeList extends React.Component {
 
       //if the component has the userClass it's a userCollection
       if ((USERCLASS != null) && this.props.shows) {
+
         if (ITEM) {
-          animeShow = <AnimeShow key={show.id} id={show.id} title={show.title} cover={show.cover}
+
+          animeShow = <UserShow key={"UC"+ITEM.id} id={ITEM.id} title={show.title} cover={show.cover}
           episodes={show.episodes} userCollectionItem={true} progress={ITEM.progress} status={ITEM.status}/>
         };
         // an AnimeList component without userClass represents the animeCatalog
-      } else if (USERCLASS == null){
+      } else if (USERCLASS == null) {
         const inCollection = ITEM ? true : false;
         animeShow = <AnimeShow key={show.id} id={show.id} title={show.title} cover={show.cover} episodes={show.episodes} inCollection={inCollection} />;
       }
@@ -36,15 +39,15 @@ class AnimeList extends React.Component {
   }
 
   findShow(id) {
-    const CHECK = this.props.shows.find(function(item){
-      return item.showID === id;
+    const CHECK = this.props.shows.find(function(item) {
+      return item.show_id === id;
     });
     return CHECK !== undefined ? CHECK : false;
   }
 
 }
 
-export default connect(function(state){
+export default connect(function(state) {
   return {
     list: state.shows.collection,
     shows: state.userCollection.shows,
