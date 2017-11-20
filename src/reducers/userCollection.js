@@ -6,12 +6,22 @@ export default function userCollection(state = initialState, action) {
   let shows, index = null;
 
   switch(action.type) {
+    case 'LOAD_USERCOLLECTION':
+
+      shows = [...action.userCollection];
+      //console.table(shows);
+      return {...state, shows: shows};
+
     case 'ADD_SHOW':
       shows = [...state.shows];
+      const userShow = action.userShow;
+
+
       const item = {
-        showID: action.showID,
-        progress: 0,
-        status: 0
+        id: userShow.id,
+        show_id: userShow.show_id,
+        progress: userShow.progress,
+        status: userShow.status
       };
       shows.push(item);
       return {...state, shows: shows};
@@ -19,40 +29,20 @@ export default function userCollection(state = initialState, action) {
     case 'REMOVE_SHOW':
       shows = [...state.shows];
       shows = shows.filter(function(show) {
-        return show.showID !== action.showID;
+        return show.id !== action.id;
       });
       return {...state, shows: shows};
 
-    case 'UPDATE_SHOW_STATUS':
+    case 'UPDATE_SHOW':
       shows = [...state.shows];
       index = shows.findIndex(function(show) {
-        return show.showID === action.showID;
+        return show.id === action.userShow.id;
       });
-      shows[index].status = action.status;
-      return {...state, shows: shows};
 
-    case 'UPDATE_SHOW_PROGRESS':
-      shows = [...state.shows];
-      index = shows.findIndex(function(show) {
-        return show.showID === action.showID;
-      });
-      const STATUS = setShowStatus(action.progress, action.episodes);
-      shows[index] = {...shows[index]};
-      shows[index].progress = action.progress;
-      shows[index].status = STATUS;
+      shows[index] = action.userShow;
       return {...state, shows: shows};
 
     default:
       return state;
   }
-}
-
-function setShowStatus(progress, episodes) {
-  let status = 0;
-  if(progress > 0 && progress < episodes) {
-    status = 1;
-  } else if (progress === episodes) {
-    status = 2;
-  }
-  return status
 }
