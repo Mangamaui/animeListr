@@ -1,5 +1,3 @@
-import animeCatalog from '../lib/animeCatalog';
-
 const initialState = {
     collection: []
 }
