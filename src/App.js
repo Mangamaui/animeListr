@@ -1,16 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import AnimeList from './components/AnimeList';
 import UserForm from './components/UserForm';
 
-import {loadAnimeCatalog} from './actions/shows';
+import { loadAnimeCatalog } from './actions/shows';
+import { loadUserCollection } from './actions/userCollection';
 
-import { connect } from 'react-redux';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     props.dispatch(loadAnimeCatalog());
+
     this.state = {
       signup: false
     }
@@ -18,11 +21,15 @@ class App extends React.Component {
     this.switchForms = this.switchForms.bind(this);
   }
 
+  componentDidMount() {
+    this.getUserCollection();
+  }
+
   render() {
     const AUTHENTICATED = this.props.authenticated != null;
 
     let userCollection =  null;
-    if(this.props.shows.length > 0 &&  AUTHENTICATED) {
+    if (this.props.shows.length > 0 &&  AUTHENTICATED) {
       userCollection = <AnimeList class="userCollection" />
     } else {
       userCollection = "";
@@ -52,7 +59,12 @@ class App extends React.Component {
   switchForms() {
     const SIGNUP = !this.state.signup ? true : false;
     this.setState({signup: SIGNUP});
-    console.log(this.state.signup);
+  }
+
+  getUserCollection() {
+   if (this.props.authenticated) {
+     this.props.dispatch(loadUserCollection(this.props.authenticated));
+   }
   }
 }
 
