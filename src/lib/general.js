@@ -1,5 +1,4 @@
 function status(response) {
-  //console.log("ok ", response.ok);
   if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response)
   } else {
@@ -22,7 +21,6 @@ export function fetchPost(url, body) {
   }).then(status)
   .then(json)
   .then(function(data) {
-    //console.log('Request succeeded with JSON response', data);
     return data;
   }).catch(function(error) {
     console.log('Request failed', error);
@@ -30,34 +28,38 @@ export function fetchPost(url, body) {
   });
 }
 
-export function authenticatedFetch(url, token) {
-  const newToken = `Bearer ${token}`;
+export function fetchRequest(url, method, token, data = null) {
+
+  const REQUESTHEADER = setHeader(token);
 
   return fetch(url, {
-    method: 'GET',
-    headers: new Headers({
+    method: method,
+    headers: new Headers(
+      REQUESTHEADER
+    ),
+    body: data
+  })
+
+}
+
+function setHeader(token) {
+  let header = null;
+
+  if (token != null) {
+    const newToken = `Bearer ${token}`;
+
+    header = {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
       'Authorization': newToken
-    })
-  }).then(status)
-  .then(json)
-  .then(function(data) {
-    console.log('Request succeeded with JSON response', data);
-    return data;
-  }).catch(function(error) {
-    console.log('Request failed', error);
-    return error;
-  });
-}
-
-export function fetchGet(url) {
-  return fetch(url, {
-    method: 'GET',
-    headers: new Headers({
+    };
+  } else {
+    header = {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
-    })
-  });
+    };
+  }
+
+  return header;
 
 }

@@ -1,24 +1,25 @@
 import { requestHasErrored, requestIsLoading } from './app';
-import { fetchGet } from '../lib/general';
+import { fetchRequest } from '../lib/general';
 
+const URL = 'http://localhost:4000/shows';
 
 export function loadAnimeCatalog() {
 
   return (dispatch) => {
     dispatch(requestIsLoading(true));
 
-    fetchGet('http://localhost:4000/shows')
+    fetchRequest(URL,'GET', null)
     .then((response) => {
       if(!response.status){
         throw Error(response.statusText);
       }
-      console.log(response);
-      dispatch(requestIsLoading(false));
 
+      dispatch(requestIsLoading(false));
       return response;
+
     }).then((response) => response.json())
     .then((data) => dispatch({
-      type: "LOAD_CATALOG",
+      type: 'LOAD_CATALOG',
       collection: data
     }))
     .catch(() => dispatch(requestHasErrored(true)));
