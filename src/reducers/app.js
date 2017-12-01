@@ -1,10 +1,11 @@
 const initialState = {
   authenticated: null,
-  user: null
+  user: null,
+  isLoading: null
 }
 
 function app(state = initialState, action) {
-  let auth, user = null;
+  let auth, user, isLoading = null;
 
   switch(action.type) {
     case 'SIGNUP':
@@ -27,8 +28,9 @@ function app(state = initialState, action) {
     return state;
 
     case 'REQUEST_IS_LOADING':
+      isLoading = action.isLoading;
 
-    return state;
+    return {...state, isLoading};
 
     default:
         return state;
