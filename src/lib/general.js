@@ -1,3 +1,6 @@
+import jwtDecode from 'jwt-decode';
+import { push, Redirect } from 'react-router-redux';
+
 function status(response) {
   if (response.status >= 200 && response.status < 300) {
     return Promise.resolve(response)
@@ -61,5 +64,32 @@ function setHeader(token) {
   }
 
   return header;
+
+}
+
+function getToken() {
+  const STATE = localStorage.getItem("state");
+  const APP = JSON.parse(STATE).app;
+
+  return APP.authenticated;
+}
+
+export function requireAuth() {
+  const token = getToken();
+
+  return !!token && !isTokenExpired(token);
+}
+
+function isTokenExpired(token) {
+
+  if (token) {
+    const decodedToken = jwtDecode(token).exp;
+    const date = new Date(0);
+    const expirationDate = date.setUTCSeconds(decodedToken);
+
+    return expirationDate < new Date();
+  } else {
+    return null;
+  }
 
 }
