@@ -1,4 +1,7 @@
 import { fetchPost, fetchRequest } from '../lib/general';
+import { push } from 'react-router-redux';
+import { loadUserCollection } from './userCollection';
+
 
 const URL = 'http://localhost:4000/users';
 
@@ -7,6 +10,7 @@ export function signup(email, password, username) {
   let token = null;
 
   return(dispatch) => {
+    dispatch(requestIsLoading(true));
 
     fetchPost(URL, data)
     .then( response => {
@@ -27,6 +31,8 @@ export function signup(email, password, username) {
         }).then((response) => response.json())
         .then((userName) => {
           const user = {...userName,token: token};
+          dispatch(push('/'));
+
           dispatch({
             type: 'SIGNUP',
             user: user
@@ -47,6 +53,8 @@ export function login(email, password) {
   let token = null;
 
   return (dispatch) => {
+    dispatch(requestIsLoading(true));
+
     fetchPost('http://localhost:4000/users/token', data)
     .then((response) => {
 
@@ -66,10 +74,16 @@ export function login(email, password) {
         }).then((response) => response.json())
         .then((userName) => {
           const user = {...userName,token: token};
+
+          dispatch(push('/usercollection'));
+          dispatch(loadUserCollection(token));
+
           dispatch({
             type: 'LOGIN',
             user: user
           });
+
+
         })
         .catch(() => dispatch(requestHasErrored(true)));
 
