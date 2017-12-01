@@ -80,7 +80,7 @@ export function requireAuth() {
   return !!token && !isTokenExpired(token);
 }
 
-function isTokenExpired(token) {
+export function isTokenExpired(token) {
 
   if (token) {
     const decodedToken = jwtDecode(token).exp;
