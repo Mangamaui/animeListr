@@ -1,9 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
-import { Route } from 'react-router';
-
-import { routerReducer, routerMiddleware, push } from 'react-router-redux';
+import { routerReducer, routerMiddleware } from 'react-router-redux';
 
 import reducers from '../reducers';
 import { loadState } from '../lib/localStorage';
