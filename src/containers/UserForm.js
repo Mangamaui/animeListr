@@ -25,10 +25,10 @@ class UserForm extends React.Component {
     return (
       <form className="user-form form" onSubmit={this.handleSubmit}>
         { (SIGNUP)?userNameField:""}
-        <label>Email:
+        <label>Email:<br/>
           <input type="email" name="email" className="login-form__input" placeholder="mugen@samuraichamploo.com" required={true} onChange={this.handleInputChange} />
         </label>
-        <label>Password:
+        <label>Password:<br/>
           <input type="password" name="password" className="login-form__input" required={true} onChange={this.handleInputChange}  />
         </label>
         <button className="user-form__button">{BTNTEXT}</button>
