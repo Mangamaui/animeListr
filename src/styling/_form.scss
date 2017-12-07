@@ -1,26 +1,31 @@
 form {
   text-align: left;
-  
+
   label {
-    margin: 0 5px;
+    display: block;
+    margin: 15px 0;
   }
 
   input {
-    width: 150px;
-    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: block;
+    margin: 5px 0;
+    padding: 0 5px;
+    width: 100%;
   }
 
   button {
     border: none;
     background-color: black;
     color: white;
-    padding: 0 5%;
+    padding: 0 10%;
   }
 
   button,
-  input,
-  label {
-    height: 25px;
+  input {
+    height: 44px;
   }
 
 }
