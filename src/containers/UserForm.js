@@ -60,7 +60,7 @@ class UserForm extends React.Component {
 
     this.props.dispatch(reduxAction);
 
-    //this.clearFields();
+    this.clearFields();
   }
 
   clearFields() {

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Route, Redirect } from 'react-router';
 import { requireAuth } from '../lib/general';
 
