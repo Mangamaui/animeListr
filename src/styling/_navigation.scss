@@ -1,0 +1,79 @@
+nav ul li {
+  display: inline-block;
+  margin-left: 10px;
+
+  a {
+    color: $base-text-color;
+    cursor: pointer;
+    text-decoration: none;
+
+    &.active {
+      color: $active-link;
+      cursor: default;
+    }
+  }
+
+  a[role="button"] {
+    background-color: $turquoise;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $dark-turquoise;
+    }
+  }
+}
+
+.sub-nav {
+  background-color: white;
+  border-radius: 3px;
+  top: 40px;
+  right: -20px;
+  position: absolute;
+	display: block;
+	padding: 0;
+  z-index: 100;
+
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid white;
+    position: absolute;
+    bottom: 100%;
+    right: 5%;
+  }
+
+  > li {
+    margin: 0;
+
+    & > a {
+      box-sizing: border-box;
+      display: block;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 10px;
+    }
+
+    &:hover {
+      background-color: $turquoise;
+      color: white;
+
+      a {
+        color: white;
+      }
+    }
+
+    &:first-child {
+      border-radius: 3px 3px 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0  3px 3px;
+    }
+  }
+}
