@@ -21,7 +21,7 @@ class UserShow extends React.Component {
     const DISABLED = this.setSelectState();
 
     return(
-      <li className="animeShow userCollection__Item">
+      <li className="animeShow userCollection__item">
         <div className="animeShow__image-wrap">
           <img className="animeShow__image" src={IMG} alt={this.props.title}/>
         </div>
@@ -36,7 +36,7 @@ class UserShow extends React.Component {
           <option value="1">Watching</option>
           <option value="2">Completed</option>
         </select>
-        <button className="animeShow__delete-button" onClick={this.handleRemoveEvent} name="removeShow">Remove show</button>
+        <button className="action-btn animeShow__delete-button" onClick={this.handleRemoveEvent} name="removeShow"><span>Remove show</span><i className="icon icon-minus"></i></button>
       </li>
     )
   }
