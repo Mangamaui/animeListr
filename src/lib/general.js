@@ -1,5 +1,4 @@
 import jwtDecode from 'jwt-decode';
-import { push, Redirect } from 'react-router-redux';
 
 function status(response) {
   if (response.status >= 200 && response.status < 300) {

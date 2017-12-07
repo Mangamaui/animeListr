@@ -75,8 +75,9 @@ export function login(email, password) {
         .then((userName) => {
           const user = {...userName,token: token};
 
-          dispatch(push('/usercollection'));
+
           dispatch(loadUserCollection(token));
+          dispatch(push('/userCollection'));
 
           dispatch({
             type: 'LOGIN',

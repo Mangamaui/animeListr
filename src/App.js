@@ -40,6 +40,7 @@ class App extends React.Component {
           {this.props.children}
 
         </main>
+        <footer>Made by Mangamaui</footer>
       </div>
     );
   }
