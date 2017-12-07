@@ -8,6 +8,11 @@ html {
   font-size: 16px;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
     background-color: $base-bg-color;
     color: $base-text-color;
@@ -30,4 +35,16 @@ a {
   text-align: center;
 }
 
-.content { padding: 50px 5%;}
+.content {
+  padding: 50px 5%;
+  min-height: calc(100vh - 223px);
+}
+
+footer {
+
+}
+
+footer,
+.push {
+  height: 50px;
+}

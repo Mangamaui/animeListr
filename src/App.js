@@ -34,11 +34,12 @@ class App extends React.Component {
         <main className="content">
 
         {this.props.isLoading &&
-          <p>THIS IS LOADING...</p>
+          <p className="loader">THIS IS LOADING...</p>
         }
 
           {this.props.children}
 
+          <div className="push"></div>
         </main>
         <footer>Made by Mangamaui</footer>
       </div>
