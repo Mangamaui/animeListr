@@ -1,11 +1,19 @@
 @import 'fonts.scss';
 @import 'variables.scss';
 
-@import 'general.scss';
-@import 'navigation.scss';
-
-@import 'header.scss';
 @import 'form.scss';
+@import 'buttons.scss';
 
+@import 'general.scss';
+
+//components
+@import 'navigation.scss';
 @import 'animeshow.scss';
 @import 'userform.scss';
+
+@import 'userCollectionItem.scss';
+
+@import 'header.scss';
+
+//views
+@import 'dashboard.scss';
