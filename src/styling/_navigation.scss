@@ -31,9 +31,13 @@ nav ul li {
   top: 40px;
   right: -20px;
   position: absolute;
-	display: block;
+	display: none;
 	padding: 0;
   z-index: 100;
+
+  &.active {
+    display: block;
+  }
 
   &::after {
     content: '';
@@ -60,12 +64,8 @@ nav ul li {
     }
 
     &:hover {
-      background-color: $turquoise;
+      background-color: $soft-pink;
       color: white;
-
-      a {
-        color: white;
-      }
     }
 
     &:first-child {
