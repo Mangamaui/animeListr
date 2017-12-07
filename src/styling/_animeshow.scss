@@ -58,63 +58,12 @@
     }
 
     button {
-      background-color: transparent;
-      border: 3px solid white;
-      border-radius: 50%;
-      color: white;
-      cursor: pointer;
-      display: block;
-      font-size: 30px;
-      height: 50px;
-      width: 50px;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
 
-      i {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
     }
 
-  }
-}
-
-.animeList.userCollection {
-  position: relative;
-
-  .animeShow {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    //justify-content: center;
-  }
-
-  .animeShow__image-wrap,
-  input,
-  div {
-    flex: 1;
-  }
-
-  select,
-  button {
-    flex: 2;
-  }
-
-  .animeShow__image {
-    height: 50px;
-  }
-
-  div, p {
-    text-align: left;
-  }
-
-  p {
-
-    flex: 3;
   }
 }
