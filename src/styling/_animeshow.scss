@@ -1,21 +1,55 @@
 .animeList:not(.userCollection) {
-  display: flex;
+  position: relative;
   font-size: 13px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 3em;
 
-  .animeShow {
-    flex: 1;
-    margin: 10px;
+  .show-card {
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    overflow:hidden;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.15);
 
-    .animeShow__image-wrap {
-      display: block;
-      height: 300px;
-      margin-bottom: 5px;
+    .show-card__image-wrap {
+      background-color: black;
       overflow: hidden;
+      padding-top: 140%; /* 1:1 Aspect Ratio */
+      position: relative;
+      width: 100%;
+
+      button {
+        display: none;
+      }
+
+      &:hover {
+
+        .show-card__image {
+          opacity: 0.3;
+        }
+
+        button {
+          display: block;
+        }
+
+      }
+    }
+
+    .show-card__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
       width: 100%;
     }
 
-    .animeShow__image {
-      width: 100%;
+    .show-card__info {
+      display: block;
+      padding: 20px 5px;
     }
 
     p {
@@ -24,14 +58,27 @@
     }
 
     button {
-      // background-color: #333;
-      // border: none;
-      // color: white;
+      background-color: transparent;
+      border: 3px solid white;
+      border-radius: 50%;
+      color: white;
       cursor: pointer;
       display: block;
-      height: 40px;
-      margin: 10px auto;
-      width: 100%;
+      font-size: 30px;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+      i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
     }
 
   }
