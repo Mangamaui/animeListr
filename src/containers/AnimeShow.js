@@ -15,21 +15,24 @@ class AnimeShow extends React.Component {
 
   render() {
     const IMG = "/images/" + this.props.cover;
-    const BTNTEXT = (this.props.inCollection) ? "Added" : "Add to collection";
+    const BTNICON = (this.props.inCollection) ? "tick" : "plus";
+    const CLASSES = `icon icon-${BTNICON}`;
     const DISABLED = (this.props.inCollection);
-    const ADDBTN = (<button className="animeShow__add-button" onClick={this.handleAddEvent} disabled={DISABLED} name="addShow">{BTNTEXT}</button>);
+    const ADDBTN = (<button className="animeShow__add-button" onClick={this.handleAddEvent} disabled={DISABLED} name="addShow"><i className={CLASSES}></i></button>);
 
     const AUTHENTICATED = this.props.authentication != null;
     const PRINTBTN = AUTHENTICATED ? ADDBTN : "";
 
     return(
-      <li className="animeShow">
-        <div className="animeShow__image-wrap">
-          <img className="animeShow__image" src={IMG} alt={this.props.title}/>
+      <li className="show-card animeShow">
+        <div className="show-card__image-wrap">
+          <img className="show-card__image" src={IMG} alt={this.props.title}/>
+          {PRINTBTN}
         </div>
-        <p className="animeShow__title">{this.props.title}</p>
-        <span className="animeShow__episode-counter">{this.props.episodes} episodes</span>
-        {PRINTBTN}
+        <span className="show-card__info">
+          <p className="show-card_title">{this.props.title}</p>
+          <span className="show-card__episode-counter">{this.props.episodes} episodes</span>
+        </span>
       </li>
     )
   }
