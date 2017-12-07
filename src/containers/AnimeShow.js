@@ -18,7 +18,7 @@ class AnimeShow extends React.Component {
     const BTNICON = (this.props.inCollection) ? "tick" : "plus";
     const CLASSES = `icon icon-${BTNICON}`;
     const DISABLED = (this.props.inCollection);
-    const ADDBTN = (<button className="animeShow__add-button" onClick={this.handleAddEvent} disabled={DISABLED} name="addShow"><i className={CLASSES}></i></button>);
+    const ADDBTN = (<button className="action-btn add-btn " onClick={this.handleAddEvent} disabled={DISABLED} name="addShow"><i className={CLASSES}></i></button>);
 
     const AUTHENTICATED = this.props.authentication != null;
     const PRINTBTN = AUTHENTICATED ? ADDBTN : "";
