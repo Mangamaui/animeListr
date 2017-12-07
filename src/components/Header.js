@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  NavLink
-} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import UserIndicator from './UserIndicator';
 
@@ -9,7 +7,6 @@ class Header extends React.Component {
 
   render() {
     const menuLinks = this.setMenuLinks();
-    const userIndicator = this.setUserIndicator();
 
     return (
       <header>
@@ -17,14 +14,14 @@ class Header extends React.Component {
 
         <div className="menu-wrap">
           {menuLinks}
-          {userIndicator}
-
         </div>
       </header>
     )
   }
 
   setMenuLinks () {
+    const userIndicator = this.setUserIndicator();
+    
     if (!this.props.authenticated) {
       return (
           <nav className="main-nav">
@@ -41,6 +38,7 @@ class Header extends React.Component {
       <nav className="main-nav">
         <ul>
           <li><NavLink exact to="/">Home</NavLink></li>
+          {userIndicator}
         </ul>
       </nav>
     );
