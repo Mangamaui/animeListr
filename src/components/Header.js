@@ -21,12 +21,12 @@ class Header extends React.Component {
 
   setMenuLinks () {
     const userIndicator = this.setUserIndicator();
-    
+
     if (!this.props.authenticated) {
       return (
           <nav className="main-nav">
             <ul>
-              <li><NavLink exact to="/">Home</NavLink></li>
+              <li><NavLink exact to="/">home</NavLink></li>
               <li><NavLink to="/login">login</NavLink></li>
               <li><NavLink to="/signup" role="button">create account</NavLink></li>
             </ul>
