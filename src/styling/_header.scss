@@ -25,28 +25,9 @@ header {
     text-align: right;
   }
 
-  nav, .user-indicator {
+  nav {
+    color: $base-text-color;
     display: inline-block;
-
   }
 
-}
-
-
-.user-indicator .user-indicator__username {
-    margin-left: 20px;
-}
-
-.user-indicator__menu {
-  //display: none;
-  width: 200px;
-
-  & > li {
-    display: block;
-    //padding: 10px 5px;
-  }
-
-  &.user-indicator__menu-active {
-    display: block;
-  }
 }
