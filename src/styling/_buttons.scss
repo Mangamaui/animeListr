@@ -1,6 +1,9 @@
 button {
   border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
   height: 44px;
+  letter-spacing: 0.1rem;
 }
 
 .action-btn {
@@ -26,4 +29,14 @@ button {
     transform: translate(-50%, -50%);
   }
 
+}
+
+.form-btn {
+  @include buttonStyle($bright-color, white);
+  padding: 0 10%;
+  text-transform: uppercase;
+  width: 100%;
+  margin-top: 50px;
+  font-weight: bold;
+  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.15);
 }
