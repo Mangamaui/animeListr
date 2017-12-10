@@ -1,4 +1,4 @@
-$base-bg-color: #F1F1F1;
+$base-bg-color: #FAFAFA;
 $base-text-color: #333;
 $border-color: #ccc;
 
@@ -6,5 +6,7 @@ $soft-pink: #F5E1DA;
 $base: #F1F1F1;
 $turquoise: #40A798;
 $dark-turquoise: #476269;
+$bright-color: #46cffe;
+$hover-color: darken($bright-color, 20%);
 
 $active-link: lighten($base-text-color, 40%);
