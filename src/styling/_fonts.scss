@@ -30,6 +30,10 @@ $text-font: 'Nunito', sans-serif;
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.icon-minus-circle:before {
+  content: "\f056";
+}
 .icon-sort-desc:before {
   content: "\f0dd";
 }
