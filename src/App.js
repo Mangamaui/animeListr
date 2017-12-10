@@ -8,7 +8,6 @@ import { loadUserCollection } from './actions/userCollection';
 
 import Header from './components/Header';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -27,9 +26,10 @@ class App extends React.Component {
   }
 
   render() {
+    const VIEW = "App " + this.setViewClass() +"View";
 
     return (
-      <div className="App">
+      <div className={VIEW}>
         <Header authenticated={this.props.authenticated} userName={this.props.userName}/>
         <main className="content">
 
@@ -41,7 +41,7 @@ class App extends React.Component {
 
           <div className="push"></div>
         </main>
-        <footer>Made by Mangamaui</footer>
+        <footer><p>made by <a href="http://mangamaui.com" target="_blank">Mangamaui</a></p></footer>
       </div>
     );
   }
@@ -50,6 +50,15 @@ class App extends React.Component {
    if (this.props.authenticated) {
      this.props.dispatch(loadUserCollection(this.props.authenticated));
    }
+  }
+
+  setViewClass() {
+    let location = this.props.location.pathname;
+    if(location.length > 1) {
+      return location.substring(1);
+    }
+
+    return "";
   }
 
 }
