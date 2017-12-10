@@ -6,7 +6,7 @@ class UserCollection extends React.Component {
 
   render() {
     return ([
-        <h2 key={'oe1'}>User Collection</h2>,
+        <h2 key={'oe1'}>Your collection</h2>,
         <AnimeList key={'oe2'} class="userCollection" />
 
     ])
