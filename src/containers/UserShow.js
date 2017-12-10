@@ -27,16 +27,21 @@ class UserShow extends React.Component {
         </div>
         <p className="animeShow__title">{this.props.title}</p>
         <div className="counter">
-        <span className="animeShow__episode-counter">
-          <input className="animeShow__episode-progress" type="number" defaultValue={this.props.progress} steps="1" min="0" max={this.props.episodes} onChange={this.handleChange} />
-          {this.props.episodes}</span>
-          </div>
-        <select value={this.props.status} onChange={this.handleSelect} disabled={DISABLED}>
-          <option value="0">Planning to watch</option>
-          <option value="1">Watching</option>
-          <option value="2">Completed</option>
-        </select>
-        <button className="action-btn animeShow__delete-button" onClick={this.handleRemoveEvent} name="removeShow"><span>Remove show</span><i className="icon icon-minus"></i></button>
+          <span className="animeShow__episode-counter">
+            <input className="animeShow__episode-progress" type="number" defaultValue={this.props.progress} steps="1" min="0" max={this.props.episodes} onChange={this.handleChange} />
+          / {this.props.episodes}</span>
+        </div>
+
+        <div className="select-wrap">
+          <select value={this.props.status} onChange={this.handleSelect} disabled={DISABLED}>
+            <option value="0">Planning to watch</option>
+            <option value="1">Watching</option>
+            <option value="2">Completed</option>
+          </select>
+        </div>
+        <div className="btn-wrap">
+          <button className="action-btn animeShow__delete-button" onClick={this.handleRemoveEvent} name="removeShow"><span>Remove show</span><i className="icon icon-minus-circle"></i></button>
+        </div>
       </li>
     )
   }
