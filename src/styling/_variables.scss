@@ -10,3 +10,13 @@ $bright-color: #46cffe;
 $hover-color: darken($bright-color, 20%);
 
 $active-link: lighten($base-text-color, 40%);
+
+@mixin buttonStyle($bgcolor, $textcolor) {
+  background-color: $bgcolor;
+  color: $textcolor;
+  transition: all 0.6s;
+
+  &:hover {
+    background-color: darken($bgcolor, 15%);
+  }
+}
