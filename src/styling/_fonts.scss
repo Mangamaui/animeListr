@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,400i,700');
 
 $logo-font: 'Gloria Hallelujah', cursive;
-$text-font: sans-serif;
+$text-font: 'Nunito', sans-serif;
 
 
 @font-face {
   font-family: 'animelistr';
-  src:  url('../fonts/animelistr.eot?xt4vv7');
-  src:  url('../fonts/animelistr.eot?xt4vv7#iefix') format('embedded-opentype'),
-    url('../fonts/animelistr.ttf?xt4vv7') format('truetype'),
-    url('../fonts/animelistr.woff?xt4vv7') format('woff'),
-    url('../fonts/animelistr.svg?xt4vv7#animelistr') format('svg');
+  src:  url('../assets/fonts/animelistr.eot?xt4vv7');
+  src:  url('../assets/fonts/animelistr.eot?xt4vv7#iefix') format('embedded-opentype'),
+    url('../assets/fonts/animelistr.ttf?xt4vv7') format('truetype'),
+    url('../assets/fonts/animelistr.woff?xt4vv7') format('woff'),
+    url('../assets/fonts/animelistr.svg?xt4vv7#animelistr') format('svg');
   font-weight: normal;
   font-style: normal;
 }
