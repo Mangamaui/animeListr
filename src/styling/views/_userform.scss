@@ -32,17 +32,13 @@
     }
   }
 
+  .content {
+    padding: 50px;
+    width: 40%;
+  }
+  
 }
 
-.form-wrap {
-  position: absolute;
-  padding: 50px;
-  width: 40%;
-  height: 100%;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-}
 
 .user-form {
   margin: 50px auto;
