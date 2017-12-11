@@ -1,19 +1,19 @@
 @import 'fonts.scss';
 @import 'variables.scss';
 
-@import 'form.scss';
-@import 'buttons.scss';
-
 @import 'general.scss';
 
-//components
-@import 'navigation.scss';
-@import 'animeshow.scss';
-@import 'userform.scss';
+@import 'components/form.scss';
+@import 'components/buttons.scss';
+@import 'components/header.scss';
+@import 'components/navigation.scss';
 
-@import 'userCollectionItem.scss';
 
-@import 'header.scss';
+//custom components
+@import 'custom-components/animeshow.scss';
+@import 'custom-components/userCollectionItem.scss';
+
 
 //views
-@import 'dashboard.scss';
+@import 'views/userform.scss';
+@import 'views/dashboard.scss';

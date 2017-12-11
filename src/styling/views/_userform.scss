@@ -1,0 +1,56 @@
+.loginView,
+.signupView {
+  position: relative;
+
+  &::after {
+    background-image: url("../assets/bg.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    content: "";
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    z-index: -1;
+  }
+
+  header, footer {
+    border: none;
+  }
+
+  header .user-indicator span {
+    color: white;
+    text-shadow: 1px 1px 2px #333;
+  }
+
+  .main-nav > ul > li > a {
+    color: white;
+
+    &:not([role="button"]) {
+      text-shadow: 1px 1px 2px #333;
+    }
+  }
+
+}
+
+.form-wrap {
+  position: absolute;
+  padding: 50px;
+  width: 40%;
+  height: 100%;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+}
+
+.user-form {
+  margin: 50px auto;
+}
+
+.user-form-wrap {
+  display: block;
+  position: relative;
+  text-align: right;
+  width: 100%;
+}

@@ -16,24 +16,27 @@ class UserForm extends React.Component {
   render() {
     const SIGNUP = this.props.signup;
 
-    const BTNTEXT =  SIGNUP ? "Signup": "Login";
+    const FORMTEXT =  SIGNUP ? "signup": "login";
+    const FORMCLASS = `user-form form ${FORMTEXT}`;
 
     let userNameField = (<label>Username:
-            <input type="text" name="username" className="login-form__input" required={true} onChange={this.handleInputChange}  />
+            <input type="text" name="username" className="login-form__input form__input" required={true} onChange={this.handleInputChange}  />
             </label>);
 
     return (
-      <form className="user-form form" onSubmit={this.handleSubmit}>
-        { (SIGNUP)?userNameField:""}
-        <label>Email:<br/>
-          <input type="email" name="email" className="login-form__input" placeholder="mugen@samuraichamploo.com" required={true} onChange={this.handleInputChange} />
-        </label>
-        <label>Password:<br/>
-          <input type="password" name="password" className="login-form__input" required={true} onChange={this.handleInputChange}  />
-        </label>
-        <button className="user-form__button">{BTNTEXT}</button>
-      </form>
-
+      <div className="form-wrap">
+        <form className={FORMCLASS} onSubmit={this.handleSubmit}>
+          <h2>{FORMTEXT}</h2>
+          { (SIGNUP)?userNameField:""}
+          <label>Email:<br/>
+            <input type="email" name="email" className="login-form__input form__input" placeholder="mugen@samuraichamploo.com" required={true} onChange={this.handleInputChange} />
+          </label>
+          <label>Password:<br/>
+            <input type="password" name="password" className="login-form__input form__input" required={true} onChange={this.handleInputChange}  />
+          </label>
+          <button className="user-form__btn form-btn">{FORMTEXT}</button>
+        </form>
+      </div>
     );
   }
 
