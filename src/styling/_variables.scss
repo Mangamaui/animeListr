@@ -6,6 +6,12 @@ $hover-color: darken($bright-color, 20%);
 
 $active-link: lighten($base-text-color, 40%);
 
+$info-color: darken($bright-color, 20%);
+$alert-color: #eb472f;
+$warning-color: #ff9547;
+$success-color: #49965b;
+
+
 
 @mixin buttonStyle($bgcolor, $textcolor) {
   background-color: $bgcolor;

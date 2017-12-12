@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import UserIndicator from './UserIndicator';
+import NotificationBar from './NotificationBar';
 
 class Header extends React.Component {
 
@@ -15,6 +16,7 @@ class Header extends React.Component {
         <div className="menu-wrap">
           {menuLinks}
         </div>
+        <NotificationBar type="warning" msg={"test"} />
       </header>
     )
   }
