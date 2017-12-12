@@ -37,7 +37,7 @@ class App extends React.Component {
         <main className="content">
 
         {this.props.isLoading &&
-          <p className="loader">THIS IS LOADING...</p>
+          <div className="loader"><p>THIS IS LOADING...</p></div>
         }
 
           {this.props.children}
