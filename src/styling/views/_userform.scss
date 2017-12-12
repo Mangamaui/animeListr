@@ -36,7 +36,20 @@
     padding: 50px;
     width: 40%;
   }
-  
+
+}
+
+.form__info {
+  margin-bottom: 50px;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: lighten($base-text-color, 40%);
+    line-height: 1.8em;
+  }
 }
 
 

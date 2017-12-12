@@ -25,12 +25,16 @@ class UserForm extends React.Component {
 
     return (
       <form className={FORMCLASS} onSubmit={this.handleSubmit}>
+        <div className="form__info">
+          {this.props.children}
+        </div>
+
         { (SIGNUP)?userNameField:""}
         <label>Email:<br/>
-          <input type="email" name="email" className="login-form__input form__input" placeholder="mugen@samuraichamploo.com" required={true} onChange={this.handleInputChange} />
+          <input type="email" name="email" className="form__input" placeholder="mugen@samuraichamploo.com" required={true} onChange={this.handleInputChange} />
         </label>
         <label>Password:<br/>
-          <input type="password" name="password" className="login-form__input form__input" required={true} onChange={this.handleInputChange}  />
+          <input type="password" name="password" className="form__input" required={true} onChange={this.handleInputChange}  />
         </label>
         <button className="user-form__btn form-btn">{FORMTEXT}</button>
       </form>
