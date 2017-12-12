@@ -4,7 +4,15 @@ button {
   font-size: 0.8rem;
   height: 44px;
   letter-spacing: 0.1rem;
+}
 
+.close-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+  height: auto;
 }
 
 .action-btn {
