@@ -29,10 +29,10 @@ class App extends React.Component {
   }
 
   render() {
-    const VIEW = "App " + this.setViewClass() +"View";
+    const VIEW = "App " + this.viewClass() +"View";
 
     return (
-      <div className={VIEW}>
+      <div className={VIEW} onClick={this.closeSubNav}>
         <Header authenticated={this.props.authenticated} userName={this.props.userName}/>
         <main className="content">
 
@@ -55,7 +55,7 @@ class App extends React.Component {
    }
   }
 
-  setViewClass() {
+  viewClass() {
     let location = this.props.location.pathname;
     if(location.length > 1) {
       return location.substring(1);
