@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { isTokenExpired } from './lib/general';
 
-import { logout} from './actions/app';
+import { logout, subnavStatus } from './actions/app';
 import { loadAnimeCatalog } from './actions/shows';
 import { loadUserCollection } from './actions/userCollection';
+
 
 import Header from './components/Header';
 
@@ -12,6 +13,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     props.dispatch(loadAnimeCatalog());
+
+    this.closeSubNav = this.closeSubNav.bind(this);
   }
 
   componentDidMount() {
@@ -61,6 +64,14 @@ class App extends React.Component {
     return "";
   }
 
+  closeSubNav(event) {
+
+    if(this.props.subnavState) {
+      let reduxAction = subnavStatus(false);
+      this.props.dispatch(reduxAction);
+    }
+  }
+
 }
 
 
@@ -71,6 +82,7 @@ export default connect(function(state){
     shows: state.userCollection.shows,
     authenticated: state.app.authenticated,
     userName: state.app.user,
-    isLoading: state.app.isLoading
+    isLoading: state.app.isLoading,
+    subnavState: state.app.subnavState
   };
 })(App);
