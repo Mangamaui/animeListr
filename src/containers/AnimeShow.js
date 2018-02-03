@@ -39,14 +39,10 @@ class AnimeShow extends React.Component {
 
   handleAddEvent (event) {
     event.preventDefault();
-    let reduxAction = addShow(this.props.id, this.props.authentication);
+    let reduxAction = addShow(this.props.id);
     this.props.dispatch(reduxAction);
   }
 
 }
 
-export default connect(function(state){
-  return {
-    authentication: state.app.authenticated
-  }
-})(AnimeShow);
+export default connect()(AnimeShow);

@@ -7,8 +7,10 @@ import UserShow from './UserShow';
 
 class AnimeList extends React.Component {
 
+
   render() {
     const USERCLASS = (this.props.class) ? this.props.class : null;
+    const AUTH = this.props.user.authenticated;
 
     const LIST = this.props.list.map((show) => {
       let animeShow = null;
@@ -25,7 +27,7 @@ class AnimeList extends React.Component {
         // an AnimeList component without userClass represents the animeCatalog
       } else if (USERCLASS == null) {
         const inCollection = ITEM ? true : false;
-        animeShow = <AnimeShow key={show.id} id={show.id} title={show.title} cover={show.cover} episodes={show.episodes} inCollection={inCollection} />;
+        animeShow = <AnimeShow key={show.id} id={show.id} title={show.title} cover={show.cover} episodes={show.episodes} inCollection={inCollection} authentication={AUTH}/>;
       }
 
       return animeShow;

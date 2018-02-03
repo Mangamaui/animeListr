@@ -48,19 +48,19 @@ class UserShow extends React.Component {
 
   handleRemoveEvent(event) {
     event.preventDefault();
-    let reduxAction = removeShow(this.props.id, this.props.authentication);
+    let reduxAction = removeShow(this.props.id);
     this.props.dispatch(reduxAction);
   }
 
   handleSelect(event) {
     event.preventDefault();
-    let reduxAction = updateShowStatus(this.props.id, this.props.authentication,event.target.value);
+    let reduxAction = updateShowStatus(this.props.id, event.target.value);
     this.props.dispatch(reduxAction);
   }
 
   handleChange(event) {
     event.preventDefault();
-    let reduxAction = updateShowProgress(this.props.id, this.props.authentication, event.target.value, this.props.episodes);
+    let reduxAction = updateShowProgress(this.props.id, event.target.value, this.props.episodes);
     this.props.dispatch(reduxAction);
   }
 
@@ -73,8 +73,4 @@ class UserShow extends React.Component {
   }
 }
 
-export default connect(function(state) {
-  return {
-    authentication: state.app.authenticated
-  }
-})(UserShow);
+export default connect()(UserShow);

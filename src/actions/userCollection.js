@@ -3,11 +3,12 @@ import { fetchRequest } from '../lib/general';
 
 const URL = 'http://localhost:4000/user_shows';
 
-export function loadUserCollection(token) {
-  return (dispatch) => {
+export function loadUserCollection() {
+  return (dispatch, getState) => {
     dispatch(requestIsLoading(true));
+    const TOKEN = getState().app.authenticated;
 
-    fetchRequest(URL,'GET', token)
+    fetchRequest(URL,'GET', TOKEN)
     .then((response) => {
       if (!response.status) {
         throw Error(response.statusText);
@@ -25,13 +26,14 @@ export function loadUserCollection(token) {
   }
 }
 
-export function addShow(show_id, token) {
+export function addShow(show_id) {
   let data = JSON.stringify({'show_id': show_id});
 
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(requestIsLoading(true));
+    const TOKEN = getState().app.authenticated;
 
-    fetchRequest(URL, 'POST',token, data)
+    fetchRequest(URL, 'POST',TOKEN, data)
     .then((response) => {
       if (!response.status) {
         throw Error(response.statusText);
@@ -49,18 +51,19 @@ export function addShow(show_id, token) {
   }
 }
 
-export function removeShow(id, token) {
+export function removeShow(id) {
   let customURL = URL + `/${id}`;
 
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(requestIsLoading(true));
+    const TOKEN = getState().app.authenticated;
 
     dispatch({
       type: 'REMOVE_SHOW',
       id: id
     });
 
-    fetchRequest(customURL, 'DELETE',token)
+    fetchRequest(customURL, 'DELETE',TOKEN)
     .then((response) => {
       if (!response.status) {
         throw Error(response.statusText);
@@ -75,15 +78,16 @@ export function removeShow(id, token) {
 
 }
 
-export function updateShowStatus(id, token, status) {
+export function updateShowStatus(id, status) {
   let customURL = URL + `/${id}`;
 
   let data = JSON.stringify({'status': status });
 
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(requestIsLoading(true));
+    const TOKEN = getState().app.authenticated;
 
-    fetchRequest(customURL, 'PUT',token, data)
+    fetchRequest(customURL, 'PUT',TOKEN, data)
     .then((response) => {
       if (!response.status) {
         throw Error(response.statusText);
@@ -101,7 +105,7 @@ export function updateShowStatus(id, token, status) {
   }
 }
 
-export function updateShowProgress(id, token, progress, episodes) {
+export function updateShowProgress(id, progress, episodes) {
   progress = parseInt(progress, 10);
 
   let customURL = URL + `/${id}`;
@@ -109,10 +113,11 @@ export function updateShowProgress(id, token, progress, episodes) {
 
   let data = JSON.stringify({'status': STATUS, 'progress': progress });
 
-  return (dispatch) => {
+  return (dispatch, getState) => {
     dispatch(requestIsLoading(true));
+    const TOKEN = getState().app.authenticated;
 
-    fetchRequest(customURL, 'PUT',token, data).then((response) => {
+    fetchRequest(customURL, 'PUT',TOKEN, data).then((response) => {
       if (!response.status) {
         throw Error(response.statusText);
       }
