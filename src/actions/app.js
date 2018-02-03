@@ -42,6 +42,7 @@ export function signup(email, password, username) {
 
       } else {
         //show error
+        console.error(response);
       }
 
     });
@@ -90,6 +91,7 @@ export function login(email, password) {
 
       } else {
         //dispatch error
+        console.error(response);
       }
     });
   }
