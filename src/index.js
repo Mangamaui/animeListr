@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
+
 import { ConnectedRouter } from 'react-router-redux';
 import { Route, Switch } from 'react-router';
 import { Provider } from 'react-redux';
@@ -40,4 +40,3 @@ ReactDOM.render(
       </App>
     </ConnectedRouter>
   </Provider>), document.getElementById('root'));
-registerServiceWorker();
