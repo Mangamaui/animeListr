@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import UserIndicator from './UserIndicator';
 import NotificationBar from './NotificationBar';
+import UserIndicator from '../containers/UserIndicator';
 
 class Header extends React.Component {
 
