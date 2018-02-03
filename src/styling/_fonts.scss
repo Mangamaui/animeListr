@@ -7,15 +7,15 @@ $text-font: 'Nunito', sans-serif;
 
 @font-face {
   font-family: 'animelistr';
-  src:  url('../assets/fonts/animelistr.eot?xt4vv7');
-  src:  url('../assets/fonts/animelistr.eot?xt4vv7#iefix') format('embedded-opentype'),
-    url('../assets/fonts/animelistr.ttf?xt4vv7') format('truetype'),
-    url('../assets/fonts/animelistr.woff?xt4vv7') format('woff'),
-    url('../assets/fonts/animelistr.svg?xt4vv7#animelistr') format('svg');
+  src:  url('../assets/fonts/animelistr.eot?ihr3m7');
+  src:  url('../assets/fonts/animelistr.eot?ihr3m7#iefix') format('embedded-opentype'),
+    url('../assets/fonts/animelistr.ttf?ihr3m7') format('truetype'),
+    url('../assets/fonts/animelistr.woff?ihr3m7') format('woff'),
+    url('../assets/fonts/animelistr.svg?ihr3m7#animelistr') format('svg');
   font-weight: normal;
   font-style: normal;
 }
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"], [class="icon"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'animelistr' !important;
   speak: none;
@@ -33,6 +33,24 @@ $text-font: 'Nunito', sans-serif;
 
 .icon-minus-circle:before {
   content: "\f056";
+}
+.icon-times-circle:before {
+  content: "\f057";
+}
+.icon-check-circle:before {
+  content: "\f058";
+}
+.icon-info-circle:before {
+  content: "\f05a";
+}
+.icon-exclamation-circle:before {
+  content: "\f06a";
+}
+.icon-exclamation-triangle:before {
+  content: "\f071";
+}
+.icon-warning:before {
+  content: "\f071";
 }
 .icon-sort-desc:before {
   content: "\f0dd";
@@ -66,9 +84,6 @@ $text-font: 'Nunito', sans-serif;
 }
 .icon-th-menu:before {
   content: "\e908";
-}
-.icon-home:before {
-  content: "\e909";
 }
 .icon-arrow-up-thick:before {
   content: "\e90a";
