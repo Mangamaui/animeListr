@@ -24,7 +24,7 @@ class App extends React.Component {
       this.props.dispatch(logout());
 
     } else {
-      this.getUserCollection();
+      this.fetchUserCollection();
     }
   }
 
@@ -37,21 +37,21 @@ class App extends React.Component {
         <main className="content">
 
         {this.props.isLoading &&
-          <p className="loader">THIS IS LOADING...</p>
+          <div className="loader"><p>THIS IS LOADING...</p></div>
         }
 
           {this.props.children}
 
           <div className="push"></div>
         </main>
-        <footer><p>made by <a href="http://mangamaui.com" target="_blank">Mangamaui</a></p></footer>
+        <footer><p>made by <a href="http://mangamaui.com" target="_blank" rel="noreferrer noopener">Mangamaui</a></p></footer>
       </div>
     );
   }
 
-  getUserCollection() {
+  fetchUserCollection() {
    if (this.props.authenticated) {
-     this.props.dispatch(loadUserCollection(this.props.authenticated));
+     this.props.dispatch(loadUserCollection());
    }
   }
 

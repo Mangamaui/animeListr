@@ -41,10 +41,11 @@ a {
 }
 
 .content {
-  position: relative;
+  box-sizing: border-box;
   padding: 50px 5%;
-  min-height: calc(100vh - 223px);
   font-size: 1rem;
+  min-height: calc(100vh - 123px);
+  position: relative;
 }
 
 footer {
