@@ -10,6 +10,7 @@ export function loadState() {
     }
     return JSON.parse(serializedState);
   } catch (err) {
+      console.error(err);
       return undefined;
   }
 }
@@ -20,6 +21,6 @@ export function saveState(state) {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
   } catch (err) {
-      //ignoring errors atm
+      console.error(err);
   }
 }
