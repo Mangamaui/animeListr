@@ -36,7 +36,7 @@ class UserForm extends React.Component {
         <label>Password:<br/>
           <input type="password" name="password" className="form__input" required={true} onChange={this.handleInputChange}  />
         </label>
-        <button className="user-form__btn form-btn">{FORMTEXT}</button>
+        <button className="user-form__btn form-btn" type="submit">{FORMTEXT}</button>
       </form>
     );
   }

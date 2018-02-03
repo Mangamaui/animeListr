@@ -1,10 +1,20 @@
+.loginView::after {
+  background-image: url("../assets/1.jpg");
+  background-position: center top;
+}
+
+.signupView::after {
+  background-image: url("../assets/bg.jpg");
+  background-position: center top;
+}
+
 .loginView,
 .signupView {
   position: relative;
 
   &::after {
-    background-image: url("../assets/bg.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
     display: block;
     content: "";
     height: 100vh;
