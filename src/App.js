@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { isTokenExpired } from './lib/general';
 
-import { logout} from './actions/app';
+import { logout, subnavStatus } from './actions/app';
 import { loadAnimeCatalog } from './actions/shows';
 import { loadUserCollection } from './actions/userCollection';
+
 
 import Header from './components/Header';
 
@@ -12,6 +13,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     props.dispatch(loadAnimeCatalog());
+
+    this.closeSubNav = this.closeSubNav.bind(this);
   }
 
   componentDidMount() {
@@ -29,19 +32,19 @@ class App extends React.Component {
     const VIEW = "App " + this.setViewClass() +"View";
 
     return (
-      <div className={VIEW}>
+      <div className={VIEW} onClick={this.closeSubNav}>
         <Header authenticated={this.props.authenticated} userName={this.props.userName}/>
         <main className="content">
 
         {this.props.isLoading &&
-          <p className="loader">THIS IS LOADING...</p>
+          <div className="loader"><p>THIS IS LOADING...</p></div>
         }
 
           {this.props.children}
 
           <div className="push"></div>
         </main>
-        <footer><p>made by <a href="http://mangamaui.com" target="_blank">Mangamaui</a></p></footer>
+        <footer><p>made by <a href="http://mangamaui.com" target="_blank" rel="noreferrer noopener">Mangamaui</a></p></footer>
       </div>
     );
   }
@@ -61,6 +64,15 @@ class App extends React.Component {
     return "";
   }
 
+  closeSubNav(event) {
+    event.preventDefault();
+
+    if(this.props.subnavState) {
+      let reduxAction = subnavStatus(false);
+      this.props.dispatch(reduxAction);
+    }
+  }
+
 }
 
 
@@ -71,6 +83,7 @@ export default connect(function(state){
     shows: state.userCollection.shows,
     authenticated: state.app.authenticated,
     userName: state.app.user,
-    isLoading: state.app.isLoading
+    isLoading: state.app.isLoading,
+    subnavState: state.app.subnavState
   };
 })(App);

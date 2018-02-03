@@ -115,3 +115,10 @@ export function requestIsLoading(bool) {
     isLoading: bool
   };
 }
+
+export function subnavStatus(bool) {
+  return {
+    type: 'SUBNAV_STATUS',
+    subnavState: bool
+  };
+}

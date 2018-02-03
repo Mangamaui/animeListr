@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import registerServiceWorker from './registerServiceWorker';
+
 import { ConnectedRouter } from 'react-router-redux';
 import { Route, Switch } from 'react-router';
 import { Provider } from 'react-redux';
@@ -10,9 +10,7 @@ import store, { history } from './lib/store';
 import { saveState } from './lib/localStorage';
 //components
 import App from './App';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import AnimeCollection from './components/AnimeCollection';
+import { Home, Login, Signup } from './components/Views.js';
 import UserCollection from './components/UserCollection';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -32,7 +30,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <App>
         <Switch>
-          <Route exact path='/' component={AnimeCollection} />
+          <Route exact path='/' component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/signup' component={Signup} />
           <PrivateRoute path='/userCollection' component={UserCollection} />
@@ -40,4 +38,3 @@ ReactDOM.render(
       </App>
     </ConnectedRouter>
   </Provider>), document.getElementById('root'));
-registerServiceWorker();

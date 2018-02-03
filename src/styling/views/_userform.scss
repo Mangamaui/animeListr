@@ -1,10 +1,20 @@
+.loginView::after {
+  background-image: url("../assets/1.jpg");
+  background-position: center top;
+}
+
+.signupView::after {
+  background-image: url("../assets/bg.jpg");
+  background-position: center top;
+}
+
 .loginView,
 .signupView {
   position: relative;
 
   &::after {
-    background-image: url("../assets/bg.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
     display: block;
     content: "";
     height: 100vh;
@@ -32,17 +42,26 @@
     }
   }
 
+  .content {
+    padding: 50px;
+    width: 40%;
+  }
+
 }
 
-.form-wrap {
-  position: absolute;
-  padding: 50px;
-  width: 40%;
-  height: 100%;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
+.form__info {
+  margin-bottom: 50px;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: lighten($base-text-color, 40%);
+    line-height: 1.8em;
+  }
 }
+
 
 .user-form {
   margin: 50px auto;
