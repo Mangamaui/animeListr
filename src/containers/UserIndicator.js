@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout, subnavStatus } from '../actions/app';
 
+import { bindActionCreators } from 'redux';
+
+
 class UserIndicator extends React.Component {
   constructor(props) {
     super(props);
@@ -34,22 +37,31 @@ class UserIndicator extends React.Component {
 
     const STATE = this.props.subnavState ? false : true;
 
-    let reduxAction = subnavStatus(STATE);
+    this.props.subnavStatus(STATE);
     this.setState({subnavState: STATE});
-    this.props.dispatch(reduxAction);
+
   }
 
   handleClick(event) {
     event.preventDefault();
-    let reduxAction = logout();
-
-    this.props.dispatch(reduxAction);
+    this.props.logout();
   }
 }
 
-export default connect(function(state){
-  return {
-    location: state.router.location,
-    subnavState: state.app.subnavState
-  };
-})(UserIndicator);
+const mapStateToProps = (state) => {
+    return {
+      location: state.router.location,
+      subnavState: state.app.subnavState
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return (
+        bindActionCreators({
+            logout,
+            subnavStatus
+        }, dispatch)
+    );
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserIndicator);
