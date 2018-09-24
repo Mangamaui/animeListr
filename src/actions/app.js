@@ -76,14 +76,13 @@ export function login(email, password) {
         .then((userName) => {
           const user = {...userName,token: token};
 
-
-          dispatch(loadUserCollection(token));
-          dispatch(push('/userCollection'));
-
           dispatch({
             type: 'LOGIN',
             user: user
           });
+
+          dispatch(loadUserCollection(token));
+          dispatch(push('/userCollection'));
 
 
         })
