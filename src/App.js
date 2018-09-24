@@ -31,14 +31,17 @@ class App extends React.Component {
   render() {
     const VIEW = "App " + this.viewClass() +"View";
 
+    /*         {this.props.isLoading &&
+              <div className="loader"><p>THIS IS LOADING...</p></div>
+            }
+    */
+
     return (
       <div className={VIEW} onClick={this.closeSubNav}>
         <Header authenticated={this.props.authenticated} userName={this.props.userName}/>
         <main className="content">
 
-        {this.props.isLoading &&
-          <div className="loader"><p>THIS IS LOADING...</p></div>
-        }
+
 
           {this.props.children}
 
