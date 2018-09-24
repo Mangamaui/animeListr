@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  removeShow,
-  updateShowStatus,
-  updateShowProgress
-} from '../actions/userCollection';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from '../actions/userCollection';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -48,20 +45,17 @@ class UserShow extends React.Component {
 
   handleRemoveEvent(event) {
     event.preventDefault();
-    let reduxAction = removeShow(this.props.id);
-    this.props.dispatch(reduxAction);
+    this.props.actions.removeShow(this.props.id);
   }
 
   handleSelect(event) {
     event.preventDefault();
-    let reduxAction = updateShowStatus(this.props.id, event.target.value);
-    this.props.dispatch(reduxAction);
+    this.props.actions.updateShowStatus(this.props.id, event.target.value);
   }
 
   handleChange(event) {
     event.preventDefault();
-    let reduxAction = updateShowProgress(this.props.id, event.target.value, this.props.episodes);
-    this.props.dispatch(reduxAction);
+    this.props.actions.updateShowProgress(this.props.id, event.target.value, this.props.episodes);
   }
 
   setSelectState() {
@@ -73,4 +67,10 @@ class UserShow extends React.Component {
   }
 }
 
-export default connect()(UserShow);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(actionCreators, dispatch)
+    };
+}
+
+export default connect(null, mapDispatchToProps)(UserShow);
